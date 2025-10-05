@@ -27,7 +27,7 @@ What is Docker Compose?
 Docker Compose is a tool that allows you to run multiple containers simultaneously using a single file called docker-compose.yaml. Instead of running each database or service with lengthy commands, you write them all in a single YAML file(docker-compose.yaml):
 
 Benefit: I don't need to manually operate each database. Docker Compose = container management.
-
+<img width="1147" height="718" alt="Image" src="https://github.com/user-attachments/assets/20c3b134-835d-451a-ae83-6e8d76d8d1b0" />
 
 
 Steps to Install Docker
