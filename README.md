@@ -1,61 +1,192 @@
-# per-dev-ops
-🐳 What is Docker? (The Core Tool)
-Definition: Docker is a platform that allows you to run applications inside a lightweight, isolated box called a Container.
+เยี่ยมเลยครับ 🙌 ผมจะรวมเนื้อหาใหม่ที่คุณให้มา เข้าไปกับสรุป Docker ก่อนหน้า แล้วจัดเรียงให้ครบ ดูเป็น **Cheat Sheet / Quick Guide** ภาษาอังกฤษ ใช้อ่านหรือพรีเซนต์ได้เลย ✅
 
-Key Benefits 🎯 (Why we use Docker?)
-Consistency/Compatibility: The application runs identically everywhere (eliminating the "works on my machine" problem).
+---
 
-Portability: Containers can run on any major operating system (Windows, Mac, or Linux) without modification.
+# 🐳 Docker Quick Guide
 
-Speed and Efficiency: Containers are lightweight and start up very quickly.
+## 📌 Definition
 
-Key Concepts
-Containers: Self-contained, executable software packages that include everything an application needs (code, runtime, libraries, environment variables).
+Docker is a **platform to run applications** inside lightweight, isolated containers.
 
-Images: Read-only templates used to create containers.
+---
 
-Docker Compose: A tool for defining and running multi-container Docker applications using a YAML file.
+## 🎯 Key Benefits
 
-Benefits
-Consistency across all environments
+* **Consistency/Compatibility** → Runs identically everywhere.
+* **Portability** → Works on Windows, Mac, Linux.
+* **Speed & Efficiency** → Lightweight, fast startup.
 
-Easy isolation of services
+---
 
-Simple deployment and scaling
+## 🧩 Key Concepts
 
-What is Docker Compose?
-Docker Compose is a tool that allows you to run multiple containers simultaneously using a single file called docker-compose.yaml. Instead of running each database or service with lengthy commands, you write them all in a single YAML file(docker-compose.yaml):
+* **Containers** → Packaged software with code + runtime + libraries + environment.
+* **Images** → Read-only templates used to create containers.
+* **Docker Compose** → Manages multiple containers with one file (`docker-compose.yml`).
 
-Benefit: I don't need to manually operate each database. Docker Compose = container management.
+---
+
+## 📂 Why Docker is Useful
+
+* Consistency across environments
+* Easy isolation of services
+* Simple deployment & scaling
+
+----
+
+# 📂 What is Docker Compose?
+
+**Docker Compose** is a tool that allows you to:
+
+* **Manage multiple containers at once**
+* Using a single file (`docker-compose.yml`)
+* Instead of typing long `docker run ...` commands multiple times
+
+👉 Perfect for multi-service applications (e.g., Web + Database + Cache).
+
 <img width="1147" height="718" alt="Image" src="https://github.com/user-attachments/assets/20c3b134-835d-451a-ae83-6e8d76d8d1b0" />
 
+---
 
-Steps to Install Docker
 
-Steps to Install Docker (สรุปสั้น ๆ):
-1 Download: Visit the Docker website and download Docker Desktop for Mac/Windows.
-2 Verification: Check installation with docker --version.
-3 Test Run: Confirm container capability with docker run hello-world.
+## ⚙️ Install Docker (Quick Steps)
 
-The commands used to start and run the Docker application are defined in the docker-compose.yml file.
-docker-compose up -d
-Once you have saved the docker-compose.yml file in your project folder, open your Terminal and run the following commands:
+1. **Download** → Get Docker Desktop (Mac/Windows).
+2. **Verify** → `docker --version`
+3. **Test Run** → `docker run hello-world`
 
-Navigate to your project directory:
+---
 
-cd /path/to/your/db-stack/
-Start all services simultaneously (The Magic Command):
-This command downloads the images (if not already present), creates the containers, and runs everything in the background (-d = Detached Mode):
+## 🛠️ Basic Docker Compose Commands
 
-docker-compose up -d
-Verify that all containers are running:
-You should see all 4 containers (influxdb, postgres, cassandra, jupyter) listed as up and running:
+* **Start all services (background mode):**
 
+  ```bash
+  docker-compose up -d
+  ```
+
+* **List containers managed by Compose:**
+
+  ```bash
+  docker-compose ps
+  ```
+
+* **Stop all containers:**
+
+  ```bash
+  docker-compose down
+  ```
+
+* **View logs of a service:**
+
+  ```bash
+  docker-compose logs -f
+  ```
+
+* **Run only a specific service (e.g., db):**
+
+  ```bash
+  docker-compose up -d db
+  ```
+
+---
+
+## 🎯 Benefits of Docker Compose
+
+* **Easy to use** → Manage all containers with a single file
+* **Convenient** → No need to type long commands
+* **Flexible** → Can scale services, e.g., run 3 instances of a web service:
+
+  ```bash
+  docker-compose up --scale web=3 -d
+  ```
+
+---
+
+## 🛠️ Basic Docker Commands
+
+* **Check Docker version**
+
+  ```bash
+  docker --version
+  ```
+
+* **List running containers**
+
+  ```bash
+  docker ps
+  ```
+
+* **List all containers (including stopped)**
+
+  ```bash
+  docker ps -a
+  ```
+
+* **Run a container** (example: Nginx)
+
+  ```bash
+  docker run -d -p 8080:80 nginx
+  ```
+
+* **Stop a container**
+
+  ```bash
+  docker stop <container_id>
+  ```
+
+* **Remove a container**
+
+  ```bash
+  docker rm <container_id>
+  ```
+
+---
+
+## 💾 Use Case: Running Databases with Docker
+
+Instead of installing databases manually, use pre-built containers:
+
+* **PostgreSQL** → SQL relational database
+* **Cassandra** → NoSQL distributed database
+* **InfluxDB** → Time-series database
+
+**Example: Run PostgreSQL**
+
+```bash
+docker run -d --name postgres -e POSTGRES_PASSWORD=admin -p 5432:5432 postgres:15
+```
+
+---
+
+## 🐍 Anaconda + Docker
+
+Run Anaconda (Python environment) inside a container for Data Science projects without installing Python locally.
+
+**Example:**
+
+```bash
+docker run -it continuumio/anaconda3 /bin/bash
+```
+
+---
+
+## ✅ Verifying Everything
+
+Check containers:
+
+```bash
 docker ps
-Access Jupyter Notebook:
-Open your web browser and navigate to the URL, using the Token you defined for secure login:
+```
 
-URL: http://localhost:8888
-Token: mytoken123
+**Expected running services:**
+
+* Postgres
+* Cassandra
+* InfluxDB
+* Anaconda
+
+---
+
 
 
