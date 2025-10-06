@@ -23,6 +23,46 @@ Docker is a **platform to run applications** inside lightweight, isolated contai
 
 ---
 
+## 🛠️ Basic Docker Commands
+
+* **Check Docker version**
+
+  ```bash
+  docker --version
+  ```
+
+* **List running containers**
+
+  ```bash
+  docker ps
+  ```
+
+* **List all containers (including stopped)**
+
+  ```bash
+  docker ps -a
+  ```
+
+* **Run a container** (example: Nginx)
+
+  ```bash
+  docker run -d -p 8080:80 nginx
+  ```
+
+* **Stop a container**
+
+  ```bash
+  docker stop <container_id>
+  ```
+
+* **Remove a container**
+
+  ```bash
+  docker rm <container_id>
+  ```
+
+---
+
 ## 📂 Why Docker is Useful
 
 * Consistency across environments
@@ -100,45 +140,7 @@ Docker is a **platform to run applications** inside lightweight, isolated contai
 
 ---
 
-## 🛠️ Basic Docker Commands
 
-* **Check Docker version**
-
-  ```bash
-  docker --version
-  ```
-
-* **List running containers**
-
-  ```bash
-  docker ps
-  ```
-
-* **List all containers (including stopped)**
-
-  ```bash
-  docker ps -a
-  ```
-
-* **Run a container** (example: Nginx)
-
-  ```bash
-  docker run -d -p 8080:80 nginx
-  ```
-
-* **Stop a container**
-
-  ```bash
-  docker stop <container_id>
-  ```
-
-* **Remove a container**
-
-  ```bash
-  docker rm <container_id>
-  ```
-
----
 
 ## 💾 Use Case: Running Databases with Docker
 
