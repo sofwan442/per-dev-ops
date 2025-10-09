@@ -1,7 +1,25 @@
 
-# 🐳 Docker Quick Guide
 
-## 📌 Definition
+### 💡 What is DevOps?
+
+DevOps is the collaboration between **Developers (Dev)** and **Operations (Ops)** teams to **build, test, and deploy software faster, with better quality and fewer errors.**
+
+**Key Principles:**
+
+* **Automation** – Automate repetitive tasks
+* **CI/CD** – Integrate and deploy automatically
+* **Infrastructure as Code** – Manage systems with code (e.g., Docker, Terraform)
+* **Collaboration** – Work closely between Dev and Ops
+* **Monitoring** – Track and improve system performance continuously
+
+---
+Waterfall vs ⚙️ DevOps 
+
+Waterfall: Work step-by-step — plan, build, test, release.
+
+DevOps: Work continuously — build, test, deploy, improve.
+
+# 🐳 What is Docker 
 
 Docker is a **platform to run applications** inside lightweight, isolated containers.
 
